@@ -4,6 +4,8 @@ using test2.Data;
 using test2.Areas.Identity.Data;
 using test2.Models;
 using System.Net;
+using test2.Services;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.ConfigureKestrel((context, serverOptions) =>
@@ -19,8 +21,8 @@ builder.WebHost.ConfigureKestrel((context, serverOptions) =>
 
 builder.Services.AddAuthentication().AddGoogle(googleOptions =>
 {
-    googleOptions.ClientId = "";
-    googleOptions.ClientSecret = "";
+    googleOptions.ClientId = "3245";
+    googleOptions.ClientSecret = "234";
 });
 
 // Add services to the container.
@@ -29,10 +31,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true) // 이메일인증만 로그인가능
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<IEmailSender, NaverEmailSender>();
 
 var app = builder.Build();
 //ST역할을 위해 추가
