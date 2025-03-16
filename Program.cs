@@ -17,6 +17,12 @@ builder.WebHost.ConfigureKestrel((context, serverOptions) =>
     });
 });
 
+builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+{
+    googleOptions.ClientId = "556251646048-lc6paofk9mdnphtr852849uvg4g743g0.apps.googleusercontent.com";
+    googleOptions.ClientSecret = "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";
+});
+
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
