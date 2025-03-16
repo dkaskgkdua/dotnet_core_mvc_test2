@@ -19,8 +19,8 @@ builder.WebHost.ConfigureKestrel((context, serverOptions) =>
 
 builder.Services.AddAuthentication().AddGoogle(googleOptions =>
 {
-    googleOptions.ClientId = "556251646048-lc6paofk9mdnphtr852849uvg4g743g0.apps.googleusercontent.com";
-    googleOptions.ClientSecret = "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";
+    googleOptions.ClientId = "TEST556251646048-lc6paofk9mdnphtr852849uvg4g743g0.apps.googleusercontent.com";
+    googleOptions.ClientSecret = "TESTGOCSPX-_9dsE2kSUcrtCulgZdPC8ykZChcb";
 });
 
 // Add services to the container.
