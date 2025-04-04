@@ -1,0 +1,132 @@
+﻿@model IEnumerable<test2.Models.Board>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BoardType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Group_Num)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Group_Order)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Group_Tap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NickName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WriteTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WriteIp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdUserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdIp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BoardContents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeeCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReplyCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BoardType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Group_Num)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Group_Order)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Group_Tap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NickName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WriteTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WriteIp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdIp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BoardContents)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeeCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReplyCount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BoardId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BoardId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BoardId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
